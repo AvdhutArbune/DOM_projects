@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Calculator</title>
+</head>
+
+<body>
+    <div class="calculator">
+        <input type="text" class="Input_1" placeholder="enter first number">
+        <input type="text" class="Input_2" placeholder="enter second number"> <br><br>
+        <button class="add">Add</button>
+        <button class="subtract">Subtract</button>
+        <button class="multiply">Multiply</button>
+        <button class="divide">Divide</button>
+        <h1 class="result"></h1>
+    </div>
+</body>
+<script>
+    let Add = document.querySelector('.add')
+    let Subtract = document.querySelector('.subtract')
+    let Multiply = document.querySelector('.multiply')
+    let Divide = document.querySelector('.divide')
+    let heading = document.querySelector('.result')
+    Add.addEventListener('click', function () {
+        let val1 = parseInt(Number(document.querySelector('.Input_1').value))
+        let val2 = parseInt(Number(document.querySelector('.Input_2').value))
+        heading.innerText = val1 + val2
+    })
+    Subtract.addEventListener('click', function () {
+        let val1 = parseInt(Number(document.querySelector('.Input_1').value))
+        let val2 = parseInt(Number(document.querySelector('.Input_2').value))
+        heading.innerText = val1 - val2
+    })
+    Multiply.addEventListener('click', function () {
+        let val1 = parseInt(Number(document.querySelector('.Input_1').value))
+        let val2 = parseInt(Number(document.querySelector('.Input_2').value))
+        heading.innerText = val1 * val2
+    })
+    Divide.addEventListener('click', function () {
+        let val1 = parseInt(Number(document.querySelector('.Input_1').value))
+        let val2 = parseInt(Number(document.querySelector('.Input_2').value))
+        heading.innerText = val1 / val2
+    })
+</script>
+
+</html>

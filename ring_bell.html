@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Events</title>
+  </head>
+  <body>
+    <button class="ring"> Ring Bell </button>
+  </body>
+</html>
+<script>
+   let Ring_Bell=document.querySelector('.ring')
+   Ring_Bell.addEventListener('click',function(e){
+    e.preventDefault()
+    console.log("Please open the door")
+   })
+</script>

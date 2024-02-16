@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<style>
+    /* Styling heading */
+    .heading {
+        text-align: center;
+    }
+
+    /* Styling number buttons */
+    .number button {
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+        font-size: 20px;
+    }
+
+    /* Styling operator buttons */
+    .operator button {
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+        font-size: 20px;
+    }
+
+    /* Styling equal-to button */
+    .equalTo button {
+        width: 100%;
+        height: 50px;
+        margin: 5px;
+        font-size: 20px;
+    }
+
+    /* Styling clear button */
+    .clear {
+        width: 100%;
+        height: 50px;
+        margin: 5px;
+        font-size: 20px;
+        text-align: center;
+        background-color: #ccc;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <h1 class="heading"></h1>
+    <div class="number">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>0</button>
+        <button>.</button>
+    </div>
+    <div class="operator">
+        <button>+</button>
+        <button>-</button>
+        <button>*</button>
+        <button>/</button>
+    </div>
+    <div class="equalTo">
+        <button>=</button>
+    </div>
+    <div class="clear">CE</div>
+</body>
+<script>
+    let heading = document.querySelector('.heading')
+    let number = document.querySelectorAll('.number>button')
+    let operator = document.querySelectorAll('.operator>button')
+    let equalTo = document.querySelector('.equalTo')
+    let clear = document.querySelector('.clear')
+    let first_number = ""
+    let second_number = ""
+    let isfirst = true
+    let operator_button = ""
+    for (let i = 0; i < number.length; i++) {
+        number[i].addEventListener('click', function () {
+            if (isfirst === true) {
+                first_number += number[i].innerText
+                heading.innerText = first_number
+            }
+            else {
+                second_number += number[i].innerText
+                heading.innerText = second_number
+            }
+        })
+    }
+    for (let i = 0; i < operator.length; i++) {
+        operator[i].addEventListener('click', function () {
+            isfirst = false
+            operator_button = operator[i].innerText
+        })
+    }
+    function calculation(first_number, second_number, operator_button) {
+        switch (operator_button) {
+            case "+":
+                return Number(first_number) + Number(second_number)
+            case "-":
+                return Number(first_number) - Number(second_number)
+            case "*":
+                return Number(first_number) * Number(second_number)
+            case "/":
+                return Number(first_number) / Number(second_number)
+        }
+    }
+    equalTo.addEventListener('click', function () {
+        heading.innerText = calculation(first_number, second_number, operator_button)
+    })
+    clear.addEventListener('click', function () {
+        heading.innerText = ""
+        first_number = ""
+        second_number = ""
+        isfirst = true
+    })
+</script>
+
+</html>
